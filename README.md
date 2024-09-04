@@ -1,34 +1,37 @@
 # Customer-Churn-Prediction
 ### Summary of Steps
 
-1. **Import Libraries**: The necessary libraries were imported, including `pandas`, `matplotlib`, `seaborn`, and various modules from `sklearn` for data processing, modeling, and evaluation.
+Below is a summary of the steps involved:
 
-2. **Load the Dataset**: The dataset was loaded using `pd.read_csv()`, and basic information about the dataset was displayed using methods like `data.info()`, `data.head()`, and `data.describe()`.
+1. **Import Libraries:** Import the required libraries needed for this task: pandas, matplotlib, seaborn, numpy, and scikit-learn.
 
-3. **Processing Large Datasets in Chunks**: The dataset was read in chunks using `pd.read_csv()` with a `chunksize` parameter. This was useful for handling large datasets that may not fit into memory all at once.
+2. **Load and Explore Data:**
+   - Load the dataset from a CSV file.
+   - Display basic information, the first few rows, and a statistical summary of the dataset.
+   - Process large datasets in chunks for more efficient handling.
 
-4. **Visual Exploratory Data Analysis (EDA)**:
-   - **Boxplots**: Boxplots were created to visualize the relationship between `MonthlyCharges`, `tenure`, and `Churn`.
-   - **Countplots**: Countplots were used to explore the distribution of categorical features like `Contract`, `gender`, and `InternetService`.
-   - **Heatmap**: Correlation heatmaps were generated for numerical features to understand the relationships between them.
-   - **Distribution Plots**: Histograms with kernel density estimates (KDE) were plotted for `tenure`, `MonthlyCharges`, and `TotalCharges`.
-   - **Pair Plot**: A pair plot was generated to visualize relationships between numerical features, colored by `Churn`.
+3. **Data Visualization:**
+   - Visualize relationships between features such as MonthlyCharges, tenure, Contract, and Churn using box plots and count plots.
+   - Generate a heatmap to show correlations between numerical features.
+   - Create distribution plots for numerical features (tenure, MonthlyCharges, TotalCharges).
+   - Explore categorical features using count plots and box plots.
 
-5. **Feature Engineering**:
-   - **New Feature Creation**: Interaction terms like `MonthlyCharges * tenure` and aggregation features like `TotalServices` were created.
-   - **Encoding Categorical Variables**: Categorical features were encoded using one-hot encoding (`pd.get_dummies()`) and label encoding (`LabelEncoder`).
-   - **Handling Missing Data**: Missing values were handled using forward fill (`ffill()`), and non-numeric data was converted to numeric.
+4. **Data Preprocessing:**
+   - Drop irrelevant columns (e.g., customerID).
+   - Convert TotalCharges to numeric, handling errors by coercing them to NaN and filling with 0.
+   - Identify and drop non-numeric columns for correlation analysis.
+   - Encode categorical features using one-hot encoding.
+   - Create new features, such as interaction terms (MonthlyCharges * tenure) and aggregate features (e.g., TotalServices).
 
-6. **Data Preparation**:
-   - **Data Splitting**: The dataset was split into training and testing sets using `train_test_split()`.
-   - **Feature Scaling**: Numerical features were scaled using `StandardScaler` to standardize the data.
+5. **Model Preparation:**
+   - Split the data into features (X) and the target variable (y), and further into training and testing sets.
+   - Handle missing values by filling them with the mean of each feature.
+   - Scale numerical features using StandardScaler.
 
-7. **Modeling**:
-   - **Logistic Regression**: A logistic regression model was trained and evaluated.
-   - **Random Forest Classifier**: A random forest classifier was trained and evaluated.
-   - **Support Vector Machine (SVM)**: An SVM model was trained and evaluated.
-
-8. **Model Evaluation**: Each model's performance was evaluated using accuracy, precision, recall, and F1 score metrics.
+6. **Model Training and Evaluation:**
+   - Train three models: Logistic Regression, Random Forest, and Support Vector Machine (SVM).
+   - Evaluate each model on the test set using metrics such as accuracy, precision, recall, and F1 score.
+   - Print the performance metrics for each model to compare their effectiveness.
 
 ### Challenges Faced
 
